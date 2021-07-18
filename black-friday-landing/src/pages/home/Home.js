@@ -97,7 +97,7 @@ function Home() {
           <S.Textsign2 className='text1'><strong>RECEBA OS MELHORES DESCONTOS NA BLACK FRIDAY!!</strong></S.Textsign2>
           <S.Textsign className='text2'>Cadastre-se agora e receba as promoções antes de TODO mundo!</S.Textsign>
           <S.container>
-            <S.inputEmail className="emailInput" placeholder="e-mail" value={userEmail} onClick={ handleEmailChange }/>
+            <S.inputEmail className="emailInput" placeholder="e-mail" value={userEmail} onChange={ handleEmailChange }/>
             <S.submitButton type='button' onClick={handleSubmit}>Inscrever-se</S.submitButton>
           </S.container>
       </S.callAction>
