@@ -9,4 +9,8 @@ Landing page criada para o desafio do Hiring Coders.
 
 Um modelo de página para inscrição em lista para recebimento de ofertas mais que incríveis da Black Friday.
 
+### Link
+
+https://vercel.com/new/success?projectName=landing-page&deploymentUrl=landing-page-xfhgcbt4r-yuri-mrq.vercel.app
+
 
