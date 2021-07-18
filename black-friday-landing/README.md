@@ -14,4 +14,4 @@ Todo o template, CSS, HTML foi codado do zero, sem usar nenhum modelo pronto.
 
 ### Link
 
-https://vercel.com/new/success?projectName=landing-page&deploymentUrl=landing-page-xfhgcbt4r-yuri-mrq.vercel.app
+https://landing-page-sooty-kappa.vercel.app/
