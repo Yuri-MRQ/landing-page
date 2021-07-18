@@ -247,7 +247,7 @@ export const submitButton = styled.button`
         background: #fff;
         color: #000;
         border: 1px solid #000;
-    },
+    }
     &:active {
         outline: none;
         box-shadow: none;
