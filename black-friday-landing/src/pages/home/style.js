@@ -18,6 +18,9 @@ export const Links = styled(Link)`
     @media (max-width: 538px){
         font-size: .5em;
     }
+    @media (max-width: 375px){
+        font-size: .2em;
+    }
 
     &:hover {
         color: #92a8d1;
@@ -36,6 +39,9 @@ export const companyNameTop = styled.h3`
 
     @media (max-width: 734px){
         font-size: 1em;
+    }
+    @media (max-width: 375px){
+        font-size: .7em;
     }
 `
 export const linksTopNav = styled.div`
@@ -274,6 +280,10 @@ export const textFooter = styled.p`
     text-align: justify;
     display: flex;
     font-size: .9rem;
+
+    @media(max-width:435px){
+        font-size: .6rem;
+    }
 `
 
 export const Textsign = styled.p`
@@ -292,6 +302,9 @@ export const Textsign = styled.p`
     @media (max-width: 600px){
         font-size: small;
     }
+    @media (max-width: 600px){
+        text-align: center;
+    }
 `
 export const Textsign2 = styled.p`
     margin: auto;
@@ -306,6 +319,10 @@ export const Textsign2 = styled.p`
     @media (max-width: 600px){
         font-size: small;
     }
+    @media (max-width: 600px){
+        text-align: center;
+    }
+
 `
 export const figCaption = styled.figcaption`
     background-color: #222;
