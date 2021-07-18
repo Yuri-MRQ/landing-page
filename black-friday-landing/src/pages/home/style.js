@@ -43,6 +43,9 @@ export const companyNameTop = styled.h3`
     @media (max-width: 375px){
         font-size: .7em;
     }
+    @media (max-width: 300px){
+        font-size: .4rem;
+    }
 `
 export const linksTopNav = styled.div`
     margin: 0 11vw .2vw auto;
