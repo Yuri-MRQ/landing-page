@@ -18,11 +18,26 @@ const imgsFolder = [
 function Home() {
   const [ slide, setSlide ] = useState(0)
   const [ userEmail, setUserEmail ] = useState('')
+  const [ msg, setMsg ] = useState(false)
+  const [ msgTxt, setMsgTxt] = useState('')
   let liCounter = 0 
 
   function handleSubmit(){
     let userData = [{'useremail': userEmail}]
-    localStorage.setItem('user', JSON.stringify(userData))
+    if(validateEmail(userEmail)){
+      setMsgTxt('E-mail cadastrado com sucesso!')
+      setMsg(true)
+      localStorage.setItem('user', JSON.stringify(userData))
+    }else{
+      setMsgTxt('Verifique se o e-mail foi digitado corretamente.')
+      setMsg(true)
+    }
+    
+  };
+
+  function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   };
 
   function handleSlideClick(e){
@@ -33,6 +48,10 @@ function Home() {
   function handleEmailChange(e){
     setUserEmail(e.target.value)
   };
+
+  function handleFlashMSg(){
+    setMsg(false)
+  }
 
   useEffect(() => {
     let interval = setInterval(() => {
@@ -99,6 +118,14 @@ function Home() {
           <S.container>
             <S.inputEmail className="emailInput" placeholder="e-mail" value={userEmail} onChange={ handleEmailChange }/>
             <S.submitButton type='button' onClick={handleSubmit}>Inscrever-se</S.submitButton>
+            {msg ?
+      
+              <S.flashMsg onMouseOver={handleFlashMSg}>
+                  <p><strong>{msgTxt}</strong></p>
+              </S.flashMsg>
+      
+            :''
+            }
           </S.container>
       </S.callAction>
       <S.footer>

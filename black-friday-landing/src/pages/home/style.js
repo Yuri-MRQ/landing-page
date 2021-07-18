@@ -226,7 +226,7 @@ export const hoverText = styled.p`
     font-family: "Trebuchet MS";
     text-align: center;
     position: absolute;
-    display: block
+    display: block;
 
 `
 export const inputEmail = styled.input`
@@ -344,4 +344,19 @@ export const container = styled.div`
     align-items: center;
     align-content: center;
     padding: 0 0 8vh 0;
+`
+
+
+export const flashMsg = styled.div`
+    border: 2px solid black;
+    position: fixed;
+    top: 50%;
+    right: auto;
+    width: 40vw;
+    background-color: #f5f5f5;
+    height: 15vh;
+    color: red;
+    font-size: x-large;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 `
