@@ -1,7 +1,6 @@
 import * as S from './style.js';
 import React, { useState, useEffect } from 'react';
 
-let interval;
 const imgsFolder = [
   {nameFile: 'img4.jpg',
   desc: 'Promoções com até 90% de descontos!'},
@@ -17,10 +16,9 @@ const imgsFolder = [
 // HOME render functiomn
 
 function Home() {
-  let [ slide, setSlide ] = useState(0)
-  let [ userEmail, setUserEmail ] = useState('')
-  let liCounter = 0
-  let libackground = '#bdbdd5'
+  const [ slide, setSlide ] = useState(0)
+  const [ userEmail, setUserEmail ] = useState('')
+  let liCounter = 0 
 
   function handleSubmit(){
     let userData = [{'useremail': userEmail}]
@@ -29,14 +27,17 @@ function Home() {
 
   function handleSlideClick(e){
     setSlide(parseInt(e.target.id))
-    clearInterval(interval);
     return 
   };
 
+  function handleEmailChange(e){
+    setUserEmail(e.target.value)
+  };
+
   useEffect(() => {
-    interval = setInterval(() => {
-      const NextSlide = () => setSlide((prev) => (slide === imgsFolder.length - 1 ? 0 : prev + 1));
-      NextSlide();
+    let interval = setInterval(() => {
+      const nextSlide = () => setSlide((prev) => (slide === imgsFolder.length - 1 ? 0 : prev + 1));
+      nextSlide();
       clearInterval(interval);
     }, 5000);
     return () => {
@@ -80,10 +81,7 @@ function Home() {
           <S.liDiv>
             {
               imgsFolder.map(img => {
-                if(liCounter===slide){
-                  libackground =  '#000'
-                }else{libackground =  '#bdbdd5'}
-                let oneDot = <S.liProduct data-index={liCounter} id={liCounter} onClick= {handleSlideClick} style= {{background: libackground}}></S.liProduct>
+                let oneDot = <S.liProduct data-index={liCounter} id={liCounter} onClick= {handleSlideClick} style= {{background: liCounter === slide ? '#000' : '#bdbdd5'}}></S.liProduct>
                 liCounter ++
                 return(
                   oneDot
@@ -99,7 +97,7 @@ function Home() {
           <S.Textsign2 className='text1'><strong>RECEBA OS MELHORES DESCONTOS NA BLACK FRIDAY!!</strong></S.Textsign2>
           <S.Textsign className='text2'>Cadastre-se agora e receba as promoções antes de TODO mundo!</S.Textsign>
           <S.container>
-            <S.inputEmail className="emailInput" placeholder="e-mail" value={userEmail} onChange={ e => setUserEmail(e.target.value)}/>
+            <S.inputEmail className="emailInput" placeholder="e-mail" value={userEmail} onClick={ handleEmailChange }/>
             <S.submitButton type='button' onClick={handleSubmit}>Inscrever-se</S.submitButton>
           </S.container>
       </S.callAction>
