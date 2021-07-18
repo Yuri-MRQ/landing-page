@@ -35,6 +35,7 @@ function Home() {
 
   useEffect(() => {
     interval = setInterval(() => {
+      const NextSlide = () => setSlide((prev) => (slide === imgsFolder.length - 1 ? 0 : prev + 1));
       NextSlide();
       clearInterval(interval);
     }, 5000);
@@ -42,8 +43,6 @@ function Home() {
       clearInterval(interval);
     };
   }, [slide]);
-
-  const NextSlide = () => setSlide((prev) => (slide === imgsFolder.length - 1 ? 0 : prev + 1));
 
   return (
     <S.contente className="App">
